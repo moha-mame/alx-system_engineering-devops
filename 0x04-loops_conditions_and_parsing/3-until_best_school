@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Print 10 times "Best School" using a until
+i=0
+until ((i>9)); do echo "Best School"; let "i+=1"; done
