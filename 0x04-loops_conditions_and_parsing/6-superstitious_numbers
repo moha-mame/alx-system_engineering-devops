@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Displays numbers from 1 to 20 with the following rules.
 i=1
 
 while [ $i -le 20 ]
