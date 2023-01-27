@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+trap func SIGTERM
+
+function func(){
+	 echo "I am invincible!!!"
+}
+
+
+flag=0
+while [ $flag -eq 0 ]
+do
+        echo "To infinity and beyond indefinitely"
+	sleep 2
+
+done
