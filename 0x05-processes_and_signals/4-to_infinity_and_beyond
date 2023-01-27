@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#displays To infinity and beyond indefinitely
 flag=0
 while [ $flag -eq 0 ]
 do
