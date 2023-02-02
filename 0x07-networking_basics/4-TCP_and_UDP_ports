@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display TCP and UDP ports
+netstat --listening --progra
