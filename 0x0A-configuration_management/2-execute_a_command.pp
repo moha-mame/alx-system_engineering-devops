@@ -1,6 +1,6 @@
+# kills a process
 exec { 'killmenow':
-  command => 'pkill killmenow',
-  path    => '/usr/bin:/usr/sbin:/bin:/sbin',
-  onlyif  => 'pgrep killmenow',
+  command  => '/usr/bin/pkill killmenow',
+  provider => 'shell',
+  returns  => [0, 1],
 }
-
