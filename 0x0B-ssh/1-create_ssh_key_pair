@@ -1,8 +1,8 @@
-#!/usr/bin/bash
-#The ssh-keygen command is used to generate an RSA key pair.
-#The -t rsa option specifies that we want to create an RSA key pair.
-#The -b 4096 option specifies the number of bits in the key to be created (in this case, 4096).
-#The -N betty option specifies the passphrase to be used to protect the key.
-#The -f school option specifies the name of the private key file to be created
+#!/usr/bin/env bash
+# The ssh-keygen command is used to generate an RSA key pair.
+" The -t rsa option specifies that we want to create an RSA key pair."
+" The -b 4096 option specifies the number of bits in the key to be created"
+" The -N betty option specifies the passphrase to be used to protect the key."
+" The -f school option specifies the name of the private key"
 
 ssh-keygen -t rsa -b 4096 -N betty -f school
