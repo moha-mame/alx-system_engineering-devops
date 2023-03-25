@@ -5,4 +5,4 @@
 " The -N betty option specifies the passphrase to be used to protect the key."
 " The -f school option specifies the name of the private key"
 
-ssh-keygen -t rsa -b 4096 -N betty -f school
+ssh-keygen -b 4096 -f school -N betty
