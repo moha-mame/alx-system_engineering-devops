@@ -2,4 +2,4 @@
 # Uses ssh to connect to a server using the private key: 0-use_a_private_key
 # username: ubuntu
 
-ssh -i ~/.ssh/school ubuntu@172.17.0.2
+ssh -i ~/.ssh/school ubuntu@54.87.250.211
