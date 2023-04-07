@@ -28,5 +28,5 @@ location = /404.html {
 internal;   	
 }
  }"
-echo "$server_config" > /etc/nginx/sites-enabled/default
+sudo echo "$server_config" > /etc/nginx/sites-enabled/default
 sudo service nginx restart
