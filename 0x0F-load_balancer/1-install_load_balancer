@@ -8,4 +8,4 @@ sudo echo -e "\tdefault_backend servers" >> /etc/haproxy/haproxy.cfg
 sudo echo -e "\nbackend servers" >> /etc/haproxy/haproxy.cfg
 sudo echo -e "\tserver 108977-web-01 54.87.250.211:80 check" >> /etc/haproxy/haproxy.cfg
 sudo echo -e "\tserver 108977-web-02 54.173.200.45:80 check" >> /etc/haproxy/haproxy.cfg
-sudo service haproxy restart
+sudo service haproxy restarty restart
