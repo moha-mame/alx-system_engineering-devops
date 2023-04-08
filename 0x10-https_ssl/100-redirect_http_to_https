@@ -36,11 +36,11 @@ defaults
 
 frontend my_frontend
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/nanodesign.tech/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/mohanut.tech/fullchain.pem
         mode http
         default_backend my_backend_1
 
 backend my_backend_1
         balance roundrobin
-        server 914-web-01 35.196.96.41:80 check
-        server 914-web-02 3.234.218.189:80 check
+        server 108977--web-01 54.87.250.211:80 check
+        server 108977--web-02 54.173.200.45:80 check
