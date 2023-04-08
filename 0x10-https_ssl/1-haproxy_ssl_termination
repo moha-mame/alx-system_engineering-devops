@@ -7,8 +7,11 @@ global
         user haproxy
         group haproxy
         daemon
-        maxconn 2048
         tune.ssl.default-dh-param 2048
+
+        # Default SSL material locations
+        ca-base /etc/ssl/certs
+        crt-base /etc/ssl/private
 
         # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
         ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
@@ -20,8 +23,6 @@ defaults
         mode    http
         option  httplog
         option  dontlognull
-        option forwardfor
-        option http-server-close
         timeout connect 5000
         timeout client  50000
         timeout server  50000
@@ -33,22 +34,14 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-
-frontend my_frontend
+frontend www.mohanut.tech
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/mohanut.tech/fullchain.pem
-        mode http
-        default_backend my_backend_1
+        bind *:443 ssl crt /etc/letsencrypt/live/www.mohanut.tech/fullchain.pem
+        timeout http-request    30s
+        http-request redirect scheme https unless { ssl_fc }
+        default_backend mohanut.tech_server
 
-frontend www-https
-    bind 0.0.0.0:443 ssl crt /etc/ssl/private/mydomain.pem
-    reqadd X-Forwarded-Proto:\ https
-    default_backend www-backend
-
-backend my_backend_1
+backend mohanut.tech_server
         balance roundrobin
-        server 108977-web-01-01 54.87.250.211:80 check
+        server 108977-web-01 54.87.250.211:80 check
         server 108977-web-02 54.173.200.45:80 check
-backend www-backend
-    mode http
-    server web-server 127.0.0.1:80
