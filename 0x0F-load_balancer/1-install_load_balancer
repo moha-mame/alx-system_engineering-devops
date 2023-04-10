@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # install load balancer and configures HAproxy
+#!/usr/bin/env bash
+# install load balancer and configures HAproxy
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo echo -e "\nfrontend http-in" >> /etc/haproxy/haproxy.cfg
