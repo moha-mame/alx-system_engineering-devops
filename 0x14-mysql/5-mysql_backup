@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-# create a copy of databases
-mysqldump -u root -p"$1" --all-databases > backup.sql
-tar -cvzf "$(date '+%d-%m-%Y').tar.gz" backup.sql
+#script that generates a MySQL dump
+DB_USER="root"
+DB_PASS="$1"
+FILE_NAME="backup.sql"
+
+BACKUP_DIR="/var/backup/sql_backup"
+DATE=$(date +"%d-%m-%Y")
+sudo mysqldump --user=$DB_USER --password=$DB_PASS --all-databases > $FILE_NAME # $BACKUP_DIR/$FILE_NAME
+sudo tar -czvf $DATE.tar.gz $FILE_NAME
