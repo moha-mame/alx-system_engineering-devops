@@ -3,8 +3,6 @@
 DB_USER="root"
 DB_PASS="$1"
 FILE_NAME="backup.sql"
-
-BACKUP_DIR="/var/backup/sql_backup"
 DATE=$(date +"%d-%m-%Y")
 sudo mysqldump --user=$DB_USER --password=$DB_PASS --all-databases > $FILE_NAME # $BACKUP_DIR/$FILE_NAME
 sudo tar -czvf $DATE.tar.gz $FILE_NAME
