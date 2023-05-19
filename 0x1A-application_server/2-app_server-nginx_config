@@ -1,4 +1,4 @@
-#
+##
 # You should look at the following URL's in order to grasp a solid understanding
 # of Nginx configuration files in order to fully unleash the power of Nginx.
 # https://www.nginx.com/resources/wiki/start/
@@ -21,8 +21,8 @@
 server {
         listen 80 default_server;
         server_name 54.87.250.211;
-
-        location  /airbnb-onepage/ {
+    
+        location = /airbnb-onepage/ {
         include proxy_params;
         proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
         }
